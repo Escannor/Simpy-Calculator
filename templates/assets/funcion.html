@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simpy calculator</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-text">
+            Simpy calculator
+        </span>
+    </nav>
+
+    <div class="container-fluid">
+        <form action="" method="post">
+            <!--Simpy calculator-->
+            <p>Función objetivo</p>
+
+
+            <label for="foptimizar">¿Cuál es el objetivo de la función?  </label>
+
+            <select name="foptimizar" id="foptimizar">
+              <option value="max">Maximizar</option>
+              <option value="min">Minimizar</option>
+            </select>
+
+            <p>
+                Función:
+                <input name="fox1" type="number" size="10" value="0" step="any">
+                 X1 + (
+                <input name="fox2" type="number" size="10" value="0" step="any">
+                ) X2
+            </p>
+
+            {%for i in range(1, restricciones+1) %}
+                <div class="row">
+                    <p>
+                        <label for="{{ i }}fx1">{{ i }}. </label>
+                        <input type="number" id="{{ i }}fx1" name="{{ i }}fx1" value="0" step="any">
+                        <label for="{{ i }}fx2"> x1 + (</label>
+                        <input type="number" id="{{ i }}fx2" name="{{ i }}fx2" value="0" step="any">
+                        <label for="{{ i }}fec">) x2 </label>
+                        <select name="{{ i }}fec" id="{{ i }}fec">
+                            <option value="<="><=</option>
+                            <option value=">=">>=</option>
+                            <option value=">=">=</option>
+                        </select>
+                        <label for="{{ i }}fres"> </label>
+                        <input type="number" id="{{ i }}fres" name="{{ i }}fres" value="0" step="any">
+                    </p>
+                </div>
+
+            {%endfor%}
+            <p>x1, x2 >= 0</p>
+            <input type="submit" value="seguir">
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://github.com/Escannor"> github.com/Escannor</a>
+            <p>Arturo Casillas Díaz</p>
+        </div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+</body>
+</html>
